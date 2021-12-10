@@ -40,6 +40,7 @@ class LemondeApi implements Api
 
     public function getOne($id): array
     {
-        return array_filter($this->data, fn($data) => $data['id']==$id);
+        $return = array_filter($this->data, fn($data) => $data['id']==$id);
+        return empty($return)?$return : array_pop($return);
     }
 }
